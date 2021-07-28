@@ -1,5 +1,5 @@
 local function on_attach(client, bufnr)
-  local function but_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
 
   -- Mappings
   local opts = { noremap = true, silent = true }
@@ -79,8 +79,6 @@ local function init()
 
   for _, server in pairs(lspconfig_servers) do
     local config = make_config()
-
-    require'haplolabs.plugins.lspcontainers'.setup(config, server)
 
     require'lspconfig'[server].setup(config)
   end

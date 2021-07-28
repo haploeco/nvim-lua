@@ -9,14 +9,6 @@ local function init()
     syntax = 'markdown',
   }}
 
-  vim.g.vimwiki_ext2syntax = {{
-    .Rmd = 'markdown',
-    .rmd = 'markdown',
-    .md = 'markdown',
-    .markdown = 'markdown',
-    .mdown = 'markdown',
-  }}
-
   vim.g.vimwiki_markdown_link = 1
 
   -- Keymaps

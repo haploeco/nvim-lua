@@ -1,5 +1,5 @@
-Local function init()
-  require'haplolabs.vim'.init()
+local function init()
+	require'haplolabs.vim'.init()
   require'haplolabs.packer'.init()
 end
 

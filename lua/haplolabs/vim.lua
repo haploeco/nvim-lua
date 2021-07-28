@@ -34,9 +34,9 @@ local function set_vim_o()
   vim.cmd('set encoding=utf8')
   vim.cmd('set nowritebackup')
   vim.cmd('set shiftwidth=2')
-  vim.cmd('set tabstop=2')
   vim.cmd('set secure')
   vim.cmd('set splitright')
+  vim.cmd('set tabstop=2')
   vim.cmd('set updatetime=300')
 end
 
@@ -56,6 +56,7 @@ local function set_keymaps()
   map('n', '<leader>k', '<CMD>wincmd k<CR>', options)
   map('n', '<leader>l', '<CMD>wincmd l<CR>', options)
 end
+
 
 local function init()
   set_augroup()

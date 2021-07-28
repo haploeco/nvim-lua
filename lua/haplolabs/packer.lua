@@ -5,7 +5,7 @@ local packer = nil
 local function packer_verify()
   local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
 
-  if fn.emply(fn.blob(install_path)) > 0 then
+  if fn.empty(fn.glob(install_path)) > 0 then
     fn.system({'git', 'clone', 'https://github.com/wbthomason/packer.nvim', install_path})
     cmd 'packadd packer.nvim'
   end
@@ -25,9 +25,8 @@ local function packer_startup()
 
   -- Language Servers
   use {
-    'lspcontainers/lspcontainers.nvim',
+    'neovim/nvim-lspconfig',
     requires = {
-      'neovim/nvim-lspconfig',
       'nvim-lua/lsp_extensions.nvim',
     },
     config = function ()
@@ -60,6 +59,33 @@ local function packer_startup()
       require'haplolabs.plugins.compe'.init()
       require'haplolabs.plugins.compe_tabnine'.init()
       require'haplolabs.plugins.lspkind'.init()
+    end
+  }
+
+  -- Telescope
+  use 'nvim-lua/plenary.nvim'
+  use 'nvim-lua/popup.nvim'
+  use {
+    'nvim-telescope/telescope.nvim',
+    requires = 'rmagatti/session-lens',
+    config = function ()
+      require'haplolabs.plugins.telescope'.init()
+    end
+  }
+
+  -- Themes
+  use {
+    'folke/tokyonight.nvim',
+    config = function ()
+      require'haplolabs.plugins.tokyonight'.init()
+    end
+  }
+  
+  -- Sessions
+  use {
+    'rmagatti/auto-session',
+    config = function ()
+      require'haplolabs.plugins.auto_session'.init()
     end
   }
 
