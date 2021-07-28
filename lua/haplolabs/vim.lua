@@ -12,13 +12,26 @@ end
 local function set_vim_o()
   local settings = {
     backup = false,
+    ruler = true,
     errorbells = false,
     expandtab = true,
+    smarttab = true,
+    smartindent = true,
+    autoindent = true,
+    laststatus = 0,
+    conceallevel = 0,
     hidden = true,
     scrolloff = 3,
     softtabstop = 2,
     showmode = false,
-    termguicolors = true
+    termguicolors = true,
+    background = 'dark',
+    cursorline = true,
+    pumheight = 10,
+    cmdheight = 2,
+    showtabline = 2,
+    hlsearch = false,
+    mouse = 'a'
   }
 
   -- Generic vim.o
@@ -32,18 +45,32 @@ local function set_vim_o()
 
   -- Not yet in vim.o
   vim.cmd('set encoding=utf8')
+  vim.cmd('set fileencoding=utf8')
   vim.cmd('set nowritebackup')
   vim.cmd('set shiftwidth=2')
+  vim.cmd('set tabstop=2')
   vim.cmd('set secure')
   vim.cmd('set splitright')
-  vim.cmd('set tabstop=2')
+  vim.cmd('set splitbelow')
   vim.cmd('set updatetime=300')
+  vim.cmd('set timeoutlen=500')
+  vim.cmd('set t_Co=256')
+  vim.cmd('set nowrap')
+  vim.cmd('set iskeyword+=-')
+  vim.cmd('set wildmode=longest,list,full')
+  vim.cmd('set formatoptions=jql')
+  vim.cmd('set go=a')
+  vim.cmd('set complete=.,w,b,u,t,i,kspell')
 end
 
 local function set_vim_wo()
   vim.wo.number = true
   vim.wo.relativenumber = true
   vim.wo.wrap = false
+end
+
+local function set_vim_bo()
+  vim.bo.formatoptions = 'jql'
 end
 
 local function set_keymaps()
@@ -63,6 +90,7 @@ local function init()
   set_vim_g()
   set_vim_o()
   set_vim_wo()
+  set_vim_bo()
   set_keymaps()
 end
 
