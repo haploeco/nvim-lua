@@ -42,6 +42,12 @@ local function set_vim_o()
   -- Custom vim.o
   vim.o.clipboard = 'unnamedplus'
   vim.o.shortmess = vim.o.shortmess .. 'c'
+  vim.opt.formatoptions = vim.opt.formatoptions
+    + {
+        c = false,
+        o = false,
+        r = true,
+      }
 
   -- Not yet in vim.o
   vim.cmd('set encoding=utf8')
@@ -69,19 +75,25 @@ local function set_vim_wo()
   vim.wo.wrap = false
 end
 
-local function set_vim_bo()
-  vim.bo.formatoptions = 'jql'
-end
+-- local function set_vim_bo()
+--   vim.bo.formatoptions = 'jql'
+-- end
 
 local function set_keymaps()
   local map = vim.api.nvim_set_keymap
 
-  local options = { noremap = false }
+  local options = { noremap = true, silent = true }
 
   map('n', '<leader>h', '<CMD>wincmd h<CR>', options)
   map('n', '<leader>j', '<CMD>wincmd j<CR>', options)
   map('n', '<leader>k', '<CMD>wincmd k<CR>', options)
   map('n', '<leader>l', '<CMD>wincmd l<CR>', options)
+  map('n', '<M-S-l>', ':vertical resize -2<CR>', options)
+  map('n', '<M-S-h>', ':vertical resize +2<CR>', options)
+
+  -- Easy CAPS
+  map('i', '<C-u>', '<ESC>viwUi', options)
+  map('n', '<C-u>', 'viwU<ESC>', options)
 end
 
 
@@ -90,7 +102,7 @@ local function init()
   set_vim_g()
   set_vim_o()
   set_vim_wo()
-  set_vim_bo()
+  -- set_vim_bo()
   set_keymaps()
 end
 

@@ -86,6 +86,15 @@ local function packer_startup()
     end
   }
   
+  -- Git Support
+  use 'rhysd/git-messenger.vim'
+  use {
+    'lewis6991/gitsigns.nvim',
+    config = function ()
+      require'haplolabs.plugins.gitsigns'.init()
+    end
+  }
+
   -- Sessions
   use {
     'rmagatti/auto-session',
@@ -93,6 +102,22 @@ local function packer_startup()
       require'haplolabs.plugins.auto_session'.init()
     end
   }
+
+  -- Utilities
+  use 'unblevable/quick-scope'
+  use 'lukas-reineke/indent-blankline.nvim'
+  use {
+    'hoob3rt/lualine.nvim',
+    config = function ()
+      require'haplolabs.plugins.lualine'.init()
+    end
+  }
+
+  use 'preservim/nerdcommenter'
+  use 'romgrk/nvim-treesitter-context'
+  -- Better file tree with nvim-tree
+  use 'kyazdani42/nvim-tree.lua'
+  use 'kyazdani42/nvim-web-devicons'
 
   -- VimWiki + Zettelkasten
   use {
@@ -108,6 +133,16 @@ local function packer_startup()
     config = function ()
       require'haplolabs.plugins.zettel'.init()
     end
+  }
+
+  -- Taskwiki
+  use {
+    'tools-life/taskwiki',
+    requires = {
+      'powerman/vim-plugin-AnsiEsc',
+      'majutsushi/tagbar',
+      'farseer90718/vim-taskwarrior'
+    }
   }
 end
 
