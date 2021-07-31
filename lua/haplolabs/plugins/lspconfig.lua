@@ -71,7 +71,6 @@ local function init()
     "pylsp",
     "rust_analyzer",
     "sqlls", -- tbi
-    "sumneko_lua",
     "terraformls",
     "tsserver",
     "yamlls"
@@ -82,6 +81,7 @@ local function init()
 
     require'lspconfig'[server].setup(config)
   end
+
 end
 
 return {

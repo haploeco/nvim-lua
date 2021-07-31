@@ -5,11 +5,12 @@ local function init()
 
   vim.g.vimwiki_list = {{
     ext = '.md',
-    path = '~/vimwiki',
+    path = '~/projects/vimwiki',
     syntax = 'markdown',
   }}
 
   vim.g.vimwiki_markdown_link = 1
+  vim.g.markdown_folding = 1
 
   -- Keymaps
   map('n', '<leader>ww','<CMD>vsp | VimwikiIndex<CR>', options)

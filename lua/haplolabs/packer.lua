@@ -142,7 +142,10 @@ local function packer_startup()
       'powerman/vim-plugin-AnsiEsc',
       'majutsushi/tagbar',
       'farseer90718/vim-taskwarrior'
-    }
+    },
+    config = function ()
+      require'haplolabs.plugins.taskwiki'.init()
+    end
   }
 end
 
