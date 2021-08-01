@@ -114,8 +114,10 @@ local function set_keymaps()
   map('n', '<leader>k', '<CMD>wincmd k<CR>', options)
   map('n', '<leader>l', '<CMD>wincmd l<CR>', options)
 
-  map('n', '<M-S-l>', ':vertical resize -2<CR>', options)
-  map('n', '<M-S-h>', ':vertical resize +2<CR>', options)
+  map('n', '<C-Up>', ':resize -2<CR>', options)
+  map('n', '<C-Down>', ':resize +2<CR>', options)
+  map('n', '<C-Left>', ':vertical resize -2<CR>', options)
+  map('n', '<C-Right>', ':vertical resize +2<CR>', options)
 
   map('v', 'J', [[:m '>+1<cr>gv=gv]], {noremap = true})
   map('v', 'K', [[:m '<-2<cr>gv=gv]], {noremap = true})
