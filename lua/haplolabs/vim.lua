@@ -119,11 +119,11 @@ local function set_keymaps()
   map('n', '<C-Left>', ':vertical resize -2<CR>', options)
   map('n', '<C-Right>', ':vertical resize +2<CR>', options)
 
-  map('v', 'J', [[:m '>+1<cr>gv=gv]], {noremap = true})
-  map('v', 'K', [[:m '<-2<cr>gv=gv]], {noremap = true})
+  map('v', 'J', [[:m '>+1<cr>gv=gv]], options)
+  map('v', 'K', [[:m '<-2<cr>gv=gv]], options)
 
-  map('n', '<A-Tab>', ':tabnext<cr>', {noremap = true})
-  map('n', '<A-S-Tab>', ':tabprev<cr>', {noremap = true})
+  map('n', '<A-Tab>', ':tabnext<cr>', options)
+  map('n', '<A-S-Tab>', ':tabprev<cr>', options)
 
   -- Easy CAPS
   map('i', '<C-u>', '<ESC>viwUi', options)
