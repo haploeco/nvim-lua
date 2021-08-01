@@ -115,9 +115,18 @@ local function packer_startup()
 
   use 'preservim/nerdcommenter'
   use 'romgrk/nvim-treesitter-context'
+
   -- Better file tree with nvim-tree
   use 'kyazdani42/nvim-tree.lua'
   use 'kyazdani42/nvim-web-devicons'
+
+  -- Floaterm
+  use {
+    'voldikss/vim-floaterm',
+    config = function ()
+      require'haplolabs.plugins.floaterm'.init()
+    end
+  }
 
   -- VimWiki + Zettelkasten
   use {
