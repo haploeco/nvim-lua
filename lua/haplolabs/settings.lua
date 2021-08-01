@@ -49,7 +49,11 @@ local function set_vim_o()
     mouse = 'a',
     backspace = [[indent,eol,start]],
     splitbelow = true,
-    splitright = true
+    splitright = true,
+    wildmode = [[longest,list,full]],
+    secure = true,
+    updatetime = 300,
+    timeoutlen = 500
   }
 
   -- Generic vim.o
@@ -60,26 +64,8 @@ local function set_vim_o()
   -- Custom vim.o
   vim.o.clipboard = 'unnamedplus'
   vim.o.shortmess = vim.o.shortmess .. 'c'
-  vim.opt.formatoptions = vim.opt.formatoptions
-    + {
-        c = false,
-        r = true,
-        o = false,
-      }
-
-  -- Not yet in vim.o
-  vim.cmd('set encoding=utf8')
-  vim.cmd('set nowritebackup')
-  vim.cmd('set shiftwidth=2')
-  vim.cmd('set secure')
-  vim.cmd('set updatetime=300')
-  vim.cmd('set timeoutlen=500')
-  vim.cmd('set t_Co=256')
   vim.cmd('set iskeyword+=-')
-  vim.cmd('set wildmode=longest,list,full')
-  vim.cmd('set formatoptions=jql')
   vim.cmd('set go=a')
-  vim.cmd('set complete=.,w,b,u,t,i,kspell')
 end
 
 local function set_vim_wo()
@@ -102,6 +88,7 @@ local function set_vim_bo()
   vim.swapfile = false
   vim.bo.synmaxcol = 4000
   vim.bo.fileencoding = 'utf8'
+  vim.bo.complete=[[.,w,b,u,t,i,kspell]]
 end
 
 local function set_keymaps()
