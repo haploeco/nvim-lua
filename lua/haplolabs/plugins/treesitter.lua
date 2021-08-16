@@ -7,6 +7,7 @@ local function init()
       'go',
       'gomod',
       'graphql',
+      'hcl',
       'html',
       'javascript',
       'jsdoc',

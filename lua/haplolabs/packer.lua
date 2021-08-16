@@ -85,7 +85,7 @@ local function packer_startup()
       require'haplolabs.plugins.tokyonight'.init()
     end
   }
-  
+
   -- Git Support
   use 'rhysd/git-messenger.vim'
   use {
@@ -133,8 +133,8 @@ local function packer_startup()
     'michal-h21/vim-zettel',
     requires = {
       {
-        'junegunn/fzf',
-        run = function () vim.fn['fzf#install']() end
+	'junegunn/fzf',
+	run = function () vim.fn['fzf#install']() end
       },
       'junegunn/fzf.vim',
       'vimwiki/vimwiki'
