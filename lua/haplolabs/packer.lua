@@ -85,7 +85,7 @@ local function packer_startup()
       require'haplolabs.plugins.tokyonight'.init()
     end
   }
-  
+
   -- Git Support
   use 'rhysd/git-messenger.vim'
   use {
@@ -115,17 +115,26 @@ local function packer_startup()
 
   use 'preservim/nerdcommenter'
   use 'romgrk/nvim-treesitter-context'
+
   -- Better file tree with nvim-tree
   use 'kyazdani42/nvim-tree.lua'
   use 'kyazdani42/nvim-web-devicons'
+
+  -- Floaterm
+  use {
+    'voldikss/vim-floaterm',
+    config = function ()
+      require'haplolabs.plugins.floaterm'.init()
+    end
+  }
 
   -- VimWiki + Zettelkasten
   use {
     'michal-h21/vim-zettel',
     requires = {
       {
-        'junegunn/fzf',
-        run = function () vim.fn['fzf#install']() end
+	'junegunn/fzf',
+	run = function () vim.fn['fzf#install']() end
       },
       'junegunn/fzf.vim',
       'vimwiki/vimwiki'
