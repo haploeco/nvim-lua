@@ -71,6 +71,7 @@ local function init()
     "pyright",
     "rust_analyzer",
     "sqlls", -- tbi
+    "sumneko_lua",
     "terraformls",
     "tsserver",
     "yamlls"
