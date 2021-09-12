@@ -68,7 +68,7 @@ local function init()
     "gopls",
     "html",
     "jsonls", -- tbi
-    "pylsp",
+    "pyright",
     "rust_analyzer",
     "sqlls", -- tbi
     "terraformls",

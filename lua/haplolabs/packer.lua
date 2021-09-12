@@ -43,25 +43,48 @@ local function packer_startup()
     end,
   }
 
+  use 'nvim-treesitter/playground'
+
   -- Completion
+  -- use {
+  --   'hrsh7th/nvim-compe',
+  --   requires = {
+  --     {
+  --       'erkrnt/compe-tabnine',
+  --       run = './install.sh'
+  --     },
+  --     'wellle/tmux-complete.vim',
+  --     'L3MON4D3/LuaSnip',
+  --     'onsails/lspkind-nvim'
+  --   },
+  --   config = function ()
+  --     require'haplolabs.plugins.compe'.init()
+  --     require'haplolabs.plugins.compe_tabnine'.init()
+  --     require'haplolabs.plugins.lspkind'.init()
+  --   end
+  -- }
+
   use {
-    'hrsh7th/nvim-compe',
+    'hrsh7th/nvim-cmp',
     requires = {
       {
-        'erkrnt/compe-tabnine',
+        'tzachar/cmp-tabnine',
         run = './install.sh'
       },
       'wellle/tmux-complete.vim',
       'L3MON4D3/LuaSnip',
-      'onsails/lspkind-nvim'
+      'onsails/lspkind-nvim',
+      'hrsh7th/cmp-nvim-lsp',
+      'hrsh7th/cmp-path',
+      'hrsh7th/cmp-nvim-lua',
+      'hrsh7th/cmp-buffer'
     },
     config = function ()
-      require'haplolabs.plugins.compe'.init()
-      require'haplolabs.plugins.compe_tabnine'.init()
+      require'haplolabs.plugins.cmp'
+      require'haplolabs.plugins.cmp_tabnine'.init()
       require'haplolabs.plugins.lspkind'.init()
     end
   }
-
   -- tpope stuff
   use 'tpope/vim-commentary'
   use 'tpope/vim-surround'
@@ -77,6 +100,8 @@ local function packer_startup()
       require'haplolabs.plugins.telescope'.init()
     end
   }
+
+  use 'nvim-telescope/telescope-fzy-native.nvim'
 
   -- Themes
   use {
@@ -129,15 +154,19 @@ local function packer_startup()
   }
 
   -- VimWiki + Zettelkasten
+
   use {
     'michal-h21/vim-zettel',
     requires = {
       {
-	'junegunn/fzf',
-	run = function () vim.fn['fzf#install']() end
+	      'junegunn/fzf',
+	      run = function () vim.fn['fzf#install']() end
       },
       'junegunn/fzf.vim',
-      'vimwiki/vimwiki'
+      {
+        'vimwiki/vimwiki',
+        branch = 'dev',
+      },
     },
     config = function ()
       require'haplolabs.plugins.zettel'.init()
@@ -166,3 +195,4 @@ end
 return {
   init = init
 }
+

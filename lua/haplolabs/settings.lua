@@ -95,6 +95,7 @@ local function set_keymaps()
   local map = vim.api.nvim_set_keymap
 
   local options = { noremap = true, silent = true }
+  local options_expr = { noremap = true, silent = true, expr = true }
 
   map('n', '<leader>h', '<CMD>wincmd h<CR>', options)
   map('n', '<leader>j', '<CMD>wincmd j<CR>', options)
@@ -106,15 +107,38 @@ local function set_keymaps()
   map('n', '<C-Left>', ':vertical resize -2<CR>', options)
   map('n', '<C-Right>', ':vertical resize +2<CR>', options)
 
+  -- Moving text
   map('v', 'J', [[:m '>+1<cr>gv=gv]], options)
   map('v', 'K', [[:m '<-2<cr>gv=gv]], options)
+  map('i', '<C-k>', [[<esc>:m .-2<CR>==i]], options)
+  map('i', '<C-j>', [[<esc>:m .+1<CR>==i]], options)
+  map('n', '<leader>mk', [[:m .-2<CR>==]], options)
+  map('n', '<leader>mj', [[:m .+1<CR>==]], options)
 
   map('n', '<A-Tab>', ':tabnext<cr>', options)
   map('n', '<A-S-Tab>', ':tabprev<cr>', options)
 
+  -- Make Y work like C or D - to the end of line
+  map('n', 'Y', 'y$', options)
+
+  -- Keeping it centered
+  map('n', 'n', 'nzzzv', options)
+  map('n', 'N', 'Nzzzv', options)
+  map('n', 'J', 'mzJ`z', options)
+  map('n', '<C-j>', ':cnext<CR>zzzv', options)
+
+  -- Undo break points
+  map('i', ',', ',<C-g>u', options)
+  map('i', '.', '.<C-g>u', options)
+  map('i', '!', '!<C-g>u', options)
+  map('i', '?', '?<C-g>u', options)
+
   -- Easy CAPS
   map('i', '<C-u>', '<ESC>viwUi', options)
-  map('n', '<C-u>', 'viwU<ESC>', options)
+
+  -- Add count movements to jumplist
+  map('n', 'j', '(v:count > 5 ? "m\'" . v:count : "") . "j"', options_expr)
+  map('n', 'k', '(v:count > 5 ? "m\'" . v:count : "") . "k"', options_expr)
 end
 
 
