@@ -79,6 +79,7 @@ local function init()
   for _, server in pairs(lspconfig_servers) do
     local config = make_config()
 
+    require'haplolabs.plugins.lsconfig'.setup(config, server)
     require'lspconfig'[server].setup(config)
   end
 
