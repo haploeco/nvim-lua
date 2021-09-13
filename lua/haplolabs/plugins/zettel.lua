@@ -10,7 +10,7 @@ local function init()
   }}
 
   vim.g.vimwiki_markdown_link = 1
-  vim.g.markdown_folding = 1
+  vim.g.markdown_folding = 0
 
   -- Keymaps
   map('n', '<leader>ww','<CMD>vsp | VimwikiIndex<CR>', options)

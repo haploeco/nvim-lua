@@ -46,24 +46,6 @@ local function packer_startup()
   use 'nvim-treesitter/playground'
 
   -- Completion
-  -- use {
-  --   'hrsh7th/nvim-compe',
-  --   requires = {
-  --     {
-  --       'erkrnt/compe-tabnine',
-  --       run = './install.sh'
-  --     },
-  --     'wellle/tmux-complete.vim',
-  --     'L3MON4D3/LuaSnip',
-  --     'onsails/lspkind-nvim'
-  --   },
-  --   config = function ()
-  --     require'haplolabs.plugins.compe'.init()
-  --     require'haplolabs.plugins.compe_tabnine'.init()
-  --     require'haplolabs.plugins.lspkind'.init()
-  --   end
-  -- }
-
   use {
     'hrsh7th/nvim-cmp',
     requires = {
@@ -163,10 +145,7 @@ local function packer_startup()
 	      run = function () vim.fn['fzf#install']() end
       },
       'junegunn/fzf.vim',
-      {
-        'vimwiki/vimwiki',
-        branch = 'dev',
-      },
+      'vimwiki/vimwiki',
     },
     config = function ()
       require'haplolabs.plugins.zettel'.init()

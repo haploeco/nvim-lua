@@ -97,15 +97,17 @@ local function set_keymaps()
   local options = { noremap = true, silent = true }
   local options_expr = { noremap = true, silent = true, expr = true }
 
+  -- Better window navigation
   map('n', '<leader>h', '<CMD>wincmd h<CR>', options)
   map('n', '<leader>j', '<CMD>wincmd j<CR>', options)
   map('n', '<leader>k', '<CMD>wincmd k<CR>', options)
   map('n', '<leader>l', '<CMD>wincmd l<CR>', options)
 
+  -- Resizing panes
   map('n', '<C-Up>', ':resize -2<CR>', options)
   map('n', '<C-Down>', ':resize +2<CR>', options)
-  map('n', '<C-Left>', ':vertical resize -2<CR>', options)
-  map('n', '<C-Right>', ':vertical resize +2<CR>', options)
+  map('n', '<C-Left>', ':vertical resize +2<CR>', options)
+  map('n', '<C-Right>', ':vertical resize -2<CR>', options)
 
   -- Moving text
   map('v', 'J', [[:m '>+1<cr>gv=gv]], options)
@@ -115,6 +117,7 @@ local function set_keymaps()
   map('n', '<leader>mk', [[:m .-2<CR>==]], options)
   map('n', '<leader>mj', [[:m .+1<CR>==]], options)
 
+  -- Alt-tab through vim tabs
   map('n', '<A-Tab>', ':tabnext<cr>', options)
   map('n', '<A-S-Tab>', ':tabprev<cr>', options)
 
@@ -133,8 +136,9 @@ local function set_keymaps()
   map('i', '!', '!<C-g>u', options)
   map('i', '?', '?<C-g>u', options)
 
-  -- Easy CAPS
-  map('i', '<C-u>', '<ESC>viwUi', options)
+  -- Don't lose visual selection on indent
+  map('v', '<', '<gv', options)
+  map('v', '>', '>gv', options)
 
   -- Add count movements to jumplist
   map('n', 'j', '(v:count > 5 ? "m\'" . v:count : "") . "j"', options_expr)
