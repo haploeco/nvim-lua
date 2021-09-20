@@ -32,7 +32,8 @@ local function init()
       },
     },
     indent = {
-      enable = true
+      enable = true,
+      disable = {"python"}
     }
   }
 
