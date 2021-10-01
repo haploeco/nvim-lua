@@ -124,8 +124,15 @@ local function packer_startup()
   use 'romgrk/nvim-treesitter-context'
 
   -- Better file tree with nvim-tree
-  use 'kyazdani42/nvim-tree.lua'
-  use 'kyazdani42/nvim-web-devicons'
+  -- use 'kyazdani42/nvim-tree.lua'
+  use {
+    'kyazdani42/nvim-tree.lua',
+    requires = 'kyazdani42/nvim-web-devicons',
+    config = function ()
+      require'haplolabs.plugins.nvim-tree'.init()
+    end
+  }
+
 
   -- Floaterm
   use {

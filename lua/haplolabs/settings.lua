@@ -143,6 +143,9 @@ local function set_keymaps()
   -- Add count movements to jumplist
   map('n', 'j', '(v:count > 5 ? "m\'" . v:count : "") . "j"', options_expr)
   map('n', 'k', '(v:count > 5 ? "m\'" . v:count : "") . "k"', options_expr)
+
+  -- Toggle Nvim Tree
+  map('n', '<C-e>', ':NvimTreeToggle<CR>', options)
 end
 
 
