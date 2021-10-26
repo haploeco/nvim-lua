@@ -146,6 +146,20 @@ local function set_keymaps()
 
   -- Toggle Nvim Tree
   map('n', '<C-e>', ':NvimTreeToggle<CR>', options)
+
+  -- Replace highlighted text with clipboard without messing up registers
+  map('v', '<leader>p', '"_dP', options)
+
+  map('n', '<leader>y', '"+y', options)
+  map('v', '<leader>y', '"+y', options)
+  map('n', '<leader>Y', 'gg"+yG', options)
+
+  map('n', '<leader>d', '"_d', options)
+  map('v', '<leader>d', '"_d', options)
+
+  map('i', '<C-c>', '<esc>', options)
+  map('i', 'jk', '<esc>', options)
+  map('i', 'kj', '<esc>', options)
 end
 
 
