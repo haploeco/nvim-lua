@@ -158,8 +158,6 @@ local function set_keymaps()
   map('v', '<leader>d', '"_d', options)
 
   map('i', '<C-c>', '<esc>', options)
-  map('i', 'jk', '<esc>', options)
-  map('i', 'kj', '<esc>', options)
 end
 
 
