@@ -1,13 +1,40 @@
 
 local function init()
+  local actions = require("telescope.actions")
+
   require'telescope'.setup{
     defaults = {
       file_ignore_patterns = {
         "node_modules/.*",
         "secret.d/.*",
         "%.pem"
-      }
-    }
+      },
+      prompt_prefix = " ",
+      color_devicons = true,
+      layout_strategy = "vertical",
+      layout_config = {
+        width = 0.80,
+        height = 0.90,
+        preview_cutoff = 0.5,
+        vertical = {
+         preview_height = 0.60,
+         prompt_position = "bottom",
+        },
+        horizontal = {
+          preview_width = 0.5,
+          prompt_position = "bottom",
+        }
+      },
+      mappings = {
+        i = {
+          ["<esc>"] = actions.close,
+          ["<C-j>"] = actions.move_selection_next,
+          ["<C-k>"] = actions.move_selection_previous,
+          ["<C-h>"] = actions.preview_scrolling_up,
+          ["<C-l>"] = actions.preview_scrolling_down,
+        },
+      },
+    },
   }
 
   local map = vim.api.nvim_set_keymap
