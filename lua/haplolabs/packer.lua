@@ -83,7 +83,7 @@ local function packer_startup()
     end
   }
 
-  use 'nvim-telescope/telescope-fzy-native.nvim'
+  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
   -- Themes
   use {

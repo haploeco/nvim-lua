@@ -1,5 +1,6 @@
 
 local function init()
+  local telescope = require("telescope")
   local actions = require("telescope.actions")
 
   require'telescope'.setup{
@@ -35,7 +36,17 @@ local function init()
         },
       },
     },
+    extensions = {
+      fzf = {
+	      fuzzy = true,
+        override_generic_sorter = true,
+        override_file_sorter = true,
+        case_mode = "smart_case"
+      }
+    }
   }
+
+  telescope.load_extension("fzf")
 
   local map = vim.api.nvim_set_keymap
 
