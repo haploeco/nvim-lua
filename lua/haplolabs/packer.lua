@@ -71,6 +71,7 @@ local function packer_startup()
   use 'tpope/vim-commentary'
   use 'tpope/vim-surround'
   use 'tpope/vim-sensible'
+  use 'tpope/vim-fugitive'
 
   -- Telescope
   use 'nvim-lua/plenary.nvim'
