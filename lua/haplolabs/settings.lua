@@ -120,6 +120,8 @@ local function set_keymaps()
   -- Alt-tab through vim tabs
   map('n', '<A-Tab>', ':tabnext<cr>', options)
   map('n', '<A-S-Tab>', ':tabprev<cr>', options)
+  map('n', '<leader><Tab>', ':bnext<cr>', options)
+  map('n', '<leader>n<Tab>', ':bprev<cr>', options)
 
   -- Make Y work like C or D - to the end of line
   map('n', 'Y', 'y$', options)
