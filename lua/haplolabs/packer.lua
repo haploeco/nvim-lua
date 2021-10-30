@@ -171,6 +171,15 @@ local function packer_startup()
       require'haplolabs.plugins.taskwiki'.init()
     end
   }
+
+  -- bufferline fun
+  use {
+    'akinsho/bufferline.nvim',
+    config = function ()
+      require'haplolabs.plugins.bufferline'.init()
+    end
+  }
+
 end
 
 local function init()
