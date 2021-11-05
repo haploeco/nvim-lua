@@ -9,7 +9,7 @@ cmp.setup {
   formatting = {
     format = function(entry, vim_item)
       vim_item.kind = require("lspkind").presets.default[vim_item.kind] .. " " .. vim_item.kind
-      -- local icons = require("haplolabs.plugins.lspkind").icons
+      -- local icons = require("lspkind").icons()
       -- vim_item.kind = icons[vim_item.kind]
       vim_item.menu = ({
         nvim_lsp = "(LSP)",
@@ -17,8 +17,8 @@ cmp.setup {
         path = "(Path)",
         calc = "(Calc)",
         cmp_tabnine = "(Tabnine)",
-        vsnip = "(Snippet)",
-        luasnip = "(Snippet)",
+        vsnip = "(Vsnip)",
+        luasnip = "(Luasnip)",
         buffer = "(Buffer)",
       })[entry.source.name]
       vim_item.dup = ({
@@ -91,6 +91,7 @@ cmp.setup {
     { name = "nvim_lua" },
     { name = "nvim_lsp" },
     { name = "luasnip" },
+    { name = "vsnip" },
     { name = "cmp_tabnine" },
     { name = "calc" },
     { name = "treesitter" },
