@@ -22,6 +22,10 @@ local function set_augroup()
     {'BufRead', '*', 'setlocal', 'formatoptions-=c', 'formatoptions-=r', 'formatoptions-=o'},
     {'BufNewFile', '*', 'setlocal', 'formatoptions-=c', 'formatoptions-=r', 'formatoptions-=o'},
   }, '_FormatOpts')
+
+  utils.create_augroup({
+    { 'BufNewFile', '~/projects/vimwiki/diary/*.md', ':silent 0r !~/.local/bin/generate-vimwiki-diary-template \'%s\'' },
+  }, '_VimWikiDiaryTemplate')
 end
 
 
