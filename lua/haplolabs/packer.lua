@@ -45,6 +45,10 @@ local function packer_startup()
 
   use 'nvim-treesitter/playground'
 
+  -- Markdown
+  use 'godlygeek/tabular'
+  use 'plasticboy/vim-markdown'
+
   -- Completion
   use {
     'hrsh7th/nvim-cmp',
