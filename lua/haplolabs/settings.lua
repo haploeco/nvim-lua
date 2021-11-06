@@ -155,6 +155,7 @@ local function set_keymaps()
 
   -- Replace highlighted text with clipboard without messing up registers
   map('v', '<leader>p', '"_dP', options)
+  map('n', '<leader>rw', '"_diwP', options)
 
   map('n', '<leader>y', '"+y', options)
   map('v', '<leader>y', '"+y', options)
@@ -163,6 +164,7 @@ local function set_keymaps()
   map('n', '<leader>d', '"_d', options)
   map('v', '<leader>d', '"_d', options)
 
+  -- Handy mappings
   map('i', '<C-c>', '<esc>', options)
 end
 
