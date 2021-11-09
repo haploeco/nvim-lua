@@ -26,6 +26,10 @@ local function set_augroup()
   utils.create_augroup({
     { 'BufNewFile', '~/projects/vimwiki/diary/*.md', ':silent 0r !~/.local/bin/generate-vimwiki-diary-template \'%s\'' },
   }, '_VimWikiDiaryTemplate')
+  utils.create_augroup({
+    { 'BufNewFile', 'Jenkinsfile', 'setf', 'groovy' },
+    { 'BufRead', 'Jenkinsfile', 'setf', 'groovy' },
+  }, '_JenkinsfileSyntaxHighlighting')
 end
 
 
