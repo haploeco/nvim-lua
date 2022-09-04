@@ -36,8 +36,10 @@ cmp.setup {
     end,
   },
 
-  documentation = {
-    border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+  window = {
+    documentation = {
+      border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+    },
   },
 
   mapping = {
@@ -77,7 +79,9 @@ cmp.setup {
       "s",
     }),
     -- TODO: Not sure I'm in love with this one.
-    ["<C-Space>"] = cmp.mapping.complete(),
+    -- ["<C-Space>"] = cmp.mapping.complete(),
+    ['<C-n>'] = cmp.mapping(cmp.mapping.select_next_item(), {'i','c'}),
+    ['<C-p>'] = cmp.mapping(cmp.mapping.select_prev_item(), {'i','c'}),
 
     -- These mappings are useless. I already use C-n and C-p correctly.
     -- This simply overrides them and makes them do bad things in other buffers.

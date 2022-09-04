@@ -33,7 +33,7 @@ local function init()
     },
     indent = {
       enable = true,
-      disable = {"python"}
+      disable = {"python", "go"}
     }
   }
 
