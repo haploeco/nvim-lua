@@ -37,7 +37,7 @@ local function packer_startup()
   -- Treesitter
   use {
     'nvim-treesitter/nvim-treesitter',
-    run = 'TSUpdate',
+    run = ':TSUpdate',
     config = function ()
       require'haplolabs.plugins.treesitter'.init()
     end,
@@ -59,10 +59,13 @@ local function packer_startup()
       },
       'wellle/tmux-complete.vim',
       'L3MON4D3/LuaSnip',
+      'saadparwaiz1/cmp_luasnip',
       'onsails/lspkind-nvim',
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-path',
+      'hrsh7th/cmp-emoji',
       'hrsh7th/cmp-nvim-lua',
+      'hrsh7th/cmp-cmdline',
       'hrsh7th/cmp-buffer'
     },
     config = function ()
@@ -98,6 +101,8 @@ local function packer_startup()
     end
   }
 
+  use 'fladson/vim-kitty'
+
   -- Git Support
   use 'rhysd/git-messenger.vim'
   use {
@@ -128,6 +133,10 @@ local function packer_startup()
   use 'preservim/nerdcommenter'
   use 'romgrk/nvim-treesitter-context'
 
+  -- Goyo
+  use 'junegunn/goyo.vim'
+
+
   -- Better file tree with nvim-tree
   -- use 'kyazdani42/nvim-tree.lua'
   use {
@@ -153,8 +162,8 @@ local function packer_startup()
     'michal-h21/vim-zettel',
     requires = {
       {
-	      'junegunn/fzf',
-	      run = function () vim.fn['fzf#install']() end
+	'junegunn/fzf',
+	run = function () vim.fn['fzf#install']() end
       },
       'junegunn/fzf.vim',
       'vimwiki/vimwiki',
