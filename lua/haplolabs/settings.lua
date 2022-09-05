@@ -26,15 +26,27 @@ local function set_augroup()
   utils.create_augroup({
     { 'BufNewFile', '~/projects/vimwiki/diary/*.md', ':silent 0r !~/.local/bin/generate-vimwiki-diary-template \'%s\'' },
   }, '_VimWikiDiaryTemplate')
+
   utils.create_augroup({
     { 'BufNewFile', 'Jenkinsfile', 'setf', 'groovy' },
     { 'BufRead', 'Jenkinsfile', 'setf', 'groovy' },
   }, '_JenkinsfileSyntaxHighlighting')
+
+  utils.create_augroup({
+    { 'BufRead', '/tmp/neomutt*', 'let g:goyo_width=80' },
+    { 'BufNewFile', '/tmp/neomutt*', 'let g:goyo_width=80' },
+    { 'BufRead', '/tmp/neomutt*', ':Goyo | set bg=light' },
+    { 'BufNewFile', '/tmp/neomutt*', ':Goyo | set bg=light' },
+    { 'BufRead', '/tmp/neomutt*', 'map ZZ :Goyo | x!<CR>' },
+    { 'BufNewFile', '/tmp/neomutt*', 'map ZZ :Goyo | x!<CR>' },
+  }, '_NeomuttGoyo')
+
 end
 
 
 local function set_vim_g()
   vim.g.mapleader = " "
+  vim.g.modelines = 1
 end
 
 local function set_vim_o()
@@ -92,7 +104,7 @@ local function set_vim_bo()
   vim.bo.softtabstop = 2
   vim.bo.tabstop = 2
   vim.bo.smartindent = true
-  vim.bo.modeline = false
+  vim.bo.modeline = true
   vim.swapfile = false
   vim.bo.synmaxcol = 4000
   vim.bo.fileencoding = 'utf8'
