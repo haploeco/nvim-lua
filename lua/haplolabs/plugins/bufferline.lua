@@ -2,7 +2,10 @@ local function init()
   require'bufferline'.setup{
     options = {
       numbers = "buffer_id",
-      indicator_icon = '▎',
+      indicator = {
+        icon = '▎',
+        style = 'icon',
+      },
       buffer_close_icon = '',
       modified_icon = '●',
       close_icon = '',
