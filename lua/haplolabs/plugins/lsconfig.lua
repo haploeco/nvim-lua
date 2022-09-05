@@ -59,11 +59,11 @@ local function setup(config, server)
     local sumneko_binary = ""
 
     if vim.fn.has("mac") == 1 then
-        sumneko_root_path = "/Users/" .. USER .. "/.config/nvim/ls/lua-language-server"
-        sumneko_binary = "/Users/" .. USER .. "/.config/nvim/ls/lua-language-server/bin/macOS/lua-language-server"
+        sumneko_root_path = "/Users/" .. USER .. "/.local/bin/nvim/ls/lua-language-server"
+        sumneko_binary = "/Users/" .. USER .. "/.local/bin/nvim/ls/lua-language-server/bin/macOS/lua-language-server"
     elseif vim.fn.has("unix") == 1 then
-        sumneko_root_path = "/home/" .. USER .. "/.config/nvim/ls/lua-language-server"
-        sumneko_binary = "/home/" .. USER .. "/.config/nvim/ls/lua-language-server/bin/Linux/lua-language-server"
+        sumneko_root_path = "/home/" .. USER .. "/.local/bin/nvim/ls/lua-language-server"
+        sumneko_binary = "/home/" .. USER .. "/.local/bin/nvim/ls/lua-language-server/bin/Linux/lua-language-server"
     else
         print("Unsupported system for sumneko")
     end
