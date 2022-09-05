@@ -17,7 +17,6 @@ cmp.setup {
         path = "(Path)",
         calc = "(Calc)",
         cmp_tabnine = "(Tabnine)",
-        vsnip = "(Vsnip)",
         luasnip = "(Luasnip)",
         buffer = "(Buffer)",
       })[entry.source.name]
@@ -37,9 +36,8 @@ cmp.setup {
   },
 
   window = {
-    documentation = {
-      border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-    },
+    completion = cmp.config.window.bordered(),
+    documentation = cmp.config.window.bordered(),
   },
 
   mapping = {
@@ -89,18 +87,18 @@ cmp.setup {
     -- ["<C-n>"] = cmp.mapping.select_next_item(),
   },
 
-  sources = {
-    { name = "buffer" },
-    { name = "path" },
-    { name = "nvim_lua" },
+  sources = cmp.config.sources({
     { name = "nvim_lsp" },
     { name = "luasnip" },
-    { name = "vsnip" },
+  }, {
+    { name = "path" },
+    { name = "nvim_lua" },
     { name = "cmp_tabnine" },
-    { name = "calc" },
     { name = "treesitter" },
+    { name = "buffer" },
     { name = "emoji" },
-  },
+    { name = "calc" },
+  }),
 
 }
 
